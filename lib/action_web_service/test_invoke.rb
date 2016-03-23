@@ -8,7 +8,7 @@ module Test # :nodoc:
         # invoke the specified API method
         def invoke_direct(method_name, *args)
           prepare_request('api', 'api', method_name, *args)
-          @controller.process(@request, @response)
+          @controller.dispatch('api', @request, @response)
           decode_rpc_response
         end
         alias_method :invoke, :invoke_direct
